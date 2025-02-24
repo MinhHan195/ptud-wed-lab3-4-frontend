@@ -83,7 +83,7 @@ export default {
             if (!reply) {
                 return false
             }
-            else this.$router.push({name: "contactBook"});
+            else this.$router.push({name: "contactbook"});  
         }
     },
 };
