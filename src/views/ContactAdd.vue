@@ -1,7 +1,7 @@
 <template>
     <div class="page">
         <h4>Thêm mới liên hệ</h4>
-        <ContactForm :contact="contact" @submit:contact="createContact" />
+        <ContactForm :contact="{}" @submit:contact="createContact" />
         <p>{{ message }}</p>
     </div>
 </template>
@@ -16,12 +16,6 @@ export default {
     },
     data() {
         return {
-            contact: {
-            name: "",
-            email: "",
-            address: "",
-            phone: "",
-        },
             message: "",
         };
     },
