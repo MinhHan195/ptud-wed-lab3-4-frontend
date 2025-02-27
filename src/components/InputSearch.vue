@@ -6,7 +6,7 @@ export default {
     emits: ["submit", "update:modelValue"],
     methods: {
         updateModelValue(e) {
-            this.$emits("update:modelValue", e.target.value);
+            this.$emit("update:modelValue", e.target.value);
         },
         submit() {
             this.$emit("submit");
@@ -17,10 +17,19 @@ export default {
 
 <template>
     <div class="input-group">
-        <input type="text" class="form-control" placeholder="Nhập vào thông tin cần tìm" 
-        :value="modelValue" @input="updateModelValue" @keyup.enter="submit">
+        <input 
+        type="text" 
+        class="form-control" 
+        placeholder="Nhập vào thông tin cần tìm" 
+        :value="modelValue" 
+        @input="updateModelValue" 
+        @keyup.enter="submit"
+        />
         <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button" @click="submit">
+            <button 
+            class="btn btn-outline-secondary" 
+            type="button" 
+            @click="submit">
                 <i class="fas fa-search"></i> Tìm kiếm
             </button>
         </div>

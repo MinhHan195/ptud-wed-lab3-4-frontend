@@ -1,7 +1,7 @@
 <template>
     <div class="page row">
         <div class="col-md-10 ">
-            <InputSearch v-model="searchText" />
+            <InputSearch v-model="searchText" @submit="filteredContacts"/>
         </div>
         <div class="mt-3 col-md-6">
             <h4>
@@ -75,15 +75,16 @@ export default {
     },
     computed: {
         contactStrings() {
-            return this.contracts.map((contact) => {
+            return this.contacts.map((contact) => {
                 const {name, email, address, phone} = contact;
                 return [name, email, address, phone].join("");
             });
         },
 
         filteredContacts() {
+            console.log("Submitt");
             if (!this.searchText) return this.contacts;
-            return this.contact.filter((_contact,index) => 
+            return this.contacts.filter((_contact,index) => 
                 this.contactStrings[index].includes(this.searchText)
         );
         },
